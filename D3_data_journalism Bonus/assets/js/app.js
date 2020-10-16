@@ -46,12 +46,12 @@ d3.csv('./assets/data/data.csv').then(healthData => {
 
         //create scale function
         let xLinearScale = d3.scaleLinear()
-            .domain([8, d3.max(healthData, d => d.poverty)])
+            .domain([8, d3.max(healthData, d => d.poverty)+2])
             .range([0,width])
             .nice();
 
         let yLinearScale = d3.scaleLinear()
-            .domain([0, d3.max(healthData, d => d.healthcare)+2])
+            .domain([4, d3.max(healthData, d => d.healthcare)+2])
             .range([height, 0])
             .nice();
 
