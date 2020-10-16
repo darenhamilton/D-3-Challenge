@@ -76,7 +76,12 @@ d3.csv('./assets/data/data.csv').then(healthData => {
             .attr("r", "9")
             .attr("class", "stateCircle")
         
-        //label circles
+       
+       
+       
+       
+       
+            //label circles
         let circleLabel = chartGroup.selectAll()
             .data(healthData)
             .enter()
