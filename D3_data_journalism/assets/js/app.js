@@ -75,6 +75,24 @@ d3.csv('./assets/data/data.csv').then(healthData => {
             .attr("cy", d => yLinearScale(d.healthcare))
             .attr("r", "9")
             .attr("class", "stateCircle")
+
+        // Initialize tool tip
+        let toolTip = d3.tip()
+            .attr("class", "d3-tip")
+            .offset([80, -60])
+            .html(d => `${d.state}<br>Poverty: ${d.poverty} %<br>Health Care: ${d.healthcare} %`);
+
+        //Create tooltip in the chart
+        chartGroup.call(toolTip);
+
+            //Create event listeners to display and hide the tooltip
+        circlesGroup.on("click", function (data) {
+                toolTip.show(data, this);
+            })
+        // onmouseout event
+            .on("mouseout", function (data) {
+                toolTip.hide(data);
+            });
         
         //label circles
         let circleLabel = chartGroup.selectAll()
