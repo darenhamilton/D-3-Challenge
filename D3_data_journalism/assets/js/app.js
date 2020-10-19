@@ -1,7 +1,7 @@
 
 //set canvas and margins
-let svgWidth = 960;
-let svgHeight = 500;
+let svgWidth = 1000;
+let svgHeight = 600;
 
 let margin = {
     top: 20,
@@ -73,7 +73,7 @@ d3.csv('./assets/data/data.csv').then(healthData => {
             .join("circle")
             .attr("cx", d => xLinearScale(d.poverty))
             .attr("cy", d => yLinearScale(d.healthcare))
-            .attr("r", "9")
+            .attr("r", "10")
             .attr("class", "stateCircle")
 
         // Initialize tool tip
@@ -103,7 +103,7 @@ d3.csv('./assets/data/data.csv').then(healthData => {
             .attr("y", d => yLinearScale(d.healthcare))
             .text(d => d.abbr)
             .attr("class", "stateText")
-            .attr("font-size", 7)          
+            .attr("font-size", 8)          
            
         //label y axis    
          chartGroup.append("text")
